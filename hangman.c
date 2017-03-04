@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -32,8 +31,9 @@ void board(string dit, int fout){
 
 int main()
 {
+	system("clear");
 	string word;
-	string words[] = {"Jari","Bart","Maarten","Viktor","Luca","Dirk"};
+	string words[] = {"jari","bart","maarten","viktor","luca","dirk"};
 	int wrongs = 0;
 	char let;
 
@@ -49,7 +49,7 @@ int main()
 	while (maxTries - wrongs > 0){
 		cin >> let;
 		int check = rightWrong(let, word, soFar);
-		system("CLS");
+		system("clear");
 		board(soFar, wrongs);
 		if (check == 0){
 			cout << "Too bad, wrong guess." << endl;
