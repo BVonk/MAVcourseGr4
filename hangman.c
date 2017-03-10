@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 
-using namespace std;
+
 
 const int maxTries = 5;
 
