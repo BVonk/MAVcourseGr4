@@ -2,6 +2,7 @@
 /doc/generated
 /doc/manual/generated
 
+*tudelft_course2017_conf.xml
 *.deb
 
 *.so

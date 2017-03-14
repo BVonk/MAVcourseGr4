@@ -55,6 +55,7 @@ void orange_avoider_init()
 /*
  * Function that checks it is safe to move forwards, and then moves a waypoint forward or changes the heading
  */
+
 void orange_avoider_periodic()
 {
   // Check the amount of orange. If this is above a threshold
@@ -152,3 +153,10 @@ uint8_t chooseRandomIncrementAvoidance()
   return false;
 }
 
+/*
+ * Returns boolean to check if the drone has spent to much time in a block
+ */
+
+bool spentLongTimeInBlock(int timeInBlock){
+	return timeInBlock > 5;
+}
