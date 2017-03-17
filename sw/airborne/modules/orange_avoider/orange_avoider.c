@@ -97,7 +97,6 @@ uint8_t increase_nav_heading(int32_t *heading, float incrementDegrees)
   VERBOSE_PRINT("Increasing heading to %f\n", ANGLE_FLOAT_OF_BFP(*heading) * 180 / M_PI);
   return false;
 }
-
 /*
  * Calculates coordinates of a distance of 'distanceMeters' forward w.r.t. current position and heading
  */
@@ -126,6 +125,14 @@ uint8_t moveWaypoint(uint8_t waypoint, struct EnuCoor_i *new_coor)
 }
 
 /*
+ * Code to change absolute heading, inputs are current heading and newheading.
+ */
+uint8_t changeHeadingg(uint32_t *heading, float newHeading){
+	*heading = newHeading;
+	VERBOSE_PRINT("Change heading to %f degrees\n", ANGLE_FLOAT_OF_BFP(*heading) * 180 / M_PI);
+	return false;
+}
+/*
  * Calculates coordinates of distance forward and sets waypoint 'waypoint' to those coordinates
  */
 uint8_t moveWaypointForward(uint8_t waypoint, float distanceMeters)
@@ -136,8 +143,10 @@ uint8_t moveWaypointForward(uint8_t waypoint, float distanceMeters)
   return false;
 }
 
+
+
 /*
- * Sets the variable 'incrementForAvoidance' randomly positive/negative
+ * Sets the variable 'incremhangentForAvoidance' randomly positive/negative
  */
 uint8_t chooseRandomIncrementAvoidance()
 {
@@ -156,7 +165,6 @@ uint8_t chooseRandomIncrementAvoidance()
 /*
  * Returns boolean to check if the drone has spent to much time in a block
  */
-
 bool spentLongTimeInBlock(int timeInBlock){
 	return timeInBlock > 5;
 }
