@@ -1,0 +1,32 @@
+/home/bart/paparazzi/var/aircrafts/bebop_avoid/ap/modules/computer_vision/lib/opengl/opengl.o: \
+ modules/computer_vision/lib/opengl/opengl.c \
+ modules/computer_vision/lib/opengl/opengl.h \
+ /home/bart/paparazzi/sw/include/std.h \
+ /home/bart/paparazzi/sw/include/message_pragmas.h \
+ /home/bart/paparazzi/sw/ext/libopengles/inc/GLES2/gl2.h \
+ /home/bart/paparazzi/sw/ext/libopengles/inc/GLES2/gl2platform.h \
+ /home/bart/paparazzi/sw/ext/libopengles/inc/KHR/khrplatform.h \
+ /home/bart/paparazzi/sw/ext/libopengles/inc/EGL/egl.h \
+ /home/bart/paparazzi/sw/ext/libopengles/inc/EGL/eglplatform.h \
+ /home/bart/paparazzi/sw/ext/libopengles/inc/EGL/fbdev_window.h \
+ /home/bart/paparazzi/sw/airborne/boards/bebop.h \
+ /home/bart/paparazzi/sw/airborne/peripherals/video_device.h \
+ /home/bart/paparazzi/sw/airborne/modules/computer_vision/lib/vision/image.h \
+ /home/bart/paparazzi/sw/airborne/state.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra_int.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_trig_int.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra_float.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra.h \
+ /home/bart/paparazzi/sw/include/message_pragmas.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_geodetic_int.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_geodetic.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra_int.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_geodetic_float.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra_float.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_orientation_conversion.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra_int.h \
+ /home/bart/paparazzi/sw/airborne/math/pprz_algebra_float.h \
+ /home/bart/paparazzi/sw/airborne/boards/bebop/mt9f002.h \
+ /home/bart/paparazzi/sw/airborne/mcu_periph/i2c.h \
+ /home/bart/paparazzi/sw/airborne/arch/linux/mcu_periph/i2c_arch.h

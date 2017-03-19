@@ -1,0 +1,136 @@
+150m.cmo : /home/bart/paparazzi/sw/lib/ocaml/srtm.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi
+150m.cmx : /home/bart/paparazzi/sw/lib/ocaml/srtm.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx
+aircraft.cmo : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi aircraft.cmi
+aircraft.cmx : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx aircraft.cmi
+aircraft.cmi : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi
+airprox.cmo : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi aircraft.cmi \
+    airprox.cmi
+airprox.cmx : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx aircraft.cmx \
+    airprox.cmi
+airprox.cmi : aircraft.cmi
+broadcaster.cmo : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/base64.cmi
+broadcaster.cmx : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/base64.cmx
+fw_server.cmo : wind.cmi /home/bart/paparazzi/sw/lib/ocaml/srtm.cmi \
+    server_globals.cmo /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi kml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi aircraft.cmi fw_server.cmi
+fw_server.cmx : wind.cmx /home/bart/paparazzi/sw/lib/ocaml/srtm.cmx \
+    server_globals.cmx /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx kml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx aircraft.cmx fw_server.cmi
+fw_server.cmi : aircraft.cmi
+intruder.cmo : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi intruder.cmi
+intruder.cmx : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx intruder.cmi
+intruder.cmi : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi
+ivy2serial.cmo : /home/bart/paparazzi/sw/lib/ocaml/serial.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+ivy2serial.cmx : /home/bart/paparazzi/sw/lib/ocaml/serial.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+ivy2udp.cmo : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+ivy2udp.cmx : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+ivy_tcp_aircraft.cmo : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+ivy_tcp_aircraft.cmx : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+ivy_tcp_controller.cmo : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+ivy_tcp_controller.cmx : /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+kml.cmo : server_globals.cmo /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi aircraft.cmi kml.cmi
+kml.cmx : server_globals.cmx /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx aircraft.cmx kml.cmi
+kml.cmi : aircraft.cmi
+link.cmo : /home/bart/paparazzi/sw/lib/ocaml/serial.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/os_calls.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+link.cmx : /home/bart/paparazzi/sw/lib/ocaml/serial.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/os_calls.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+messages.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi
+messages.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx
+modem.cmo : /home/bart/paparazzi/sw/lib/ocaml/serial.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi modem.cmi
+modem.cmx : /home/bart/paparazzi/sw/lib/ocaml/serial.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx modem.cmi
+modem.cmi : /home/bart/paparazzi/sw/lib/ocaml/serial.cmi
+rotorcraft_server.cmo : /home/bart/paparazzi/sw/lib/ocaml/srtm.cmi \
+    server_globals.cmo /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi aircraft.cmi \
+    rotorcraft_server.cmi
+rotorcraft_server.cmx : /home/bart/paparazzi/sw/lib/ocaml/srtm.cmx \
+    server_globals.cmx /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/debug.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx aircraft.cmx \
+    rotorcraft_server.cmi
+rotorcraft_server.cmi : aircraft.cmi
+server.cmo : wind.cmi /home/bart/paparazzi/sw/lib/ocaml/srtm.cmi \
+    server_globals.cmo rotorcraft_server.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi kml.cmi intruder.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/geometry_2d.cmi fw_server.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi airprox.cmi aircraft.cmi
+server.cmx : wind.cmx /home/bart/paparazzi/sw/lib/ocaml/srtm.cmx \
+    server_globals.cmx rotorcraft_server.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx kml.cmx intruder.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/geometry_2d.cmx fw_server.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx airprox.cmx aircraft.cmx
+server_globals.cmo : /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+server_globals.cmx : /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+settings.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmi
+settings.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/defivybus.cmx
+wind.cmo : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/geometry_2d.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi wind.cmi
+wind.cmx : /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/geometry_2d.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx wind.cmi
+wind.cmi :

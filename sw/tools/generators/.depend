@@ -1,0 +1,86 @@
+gen_abi.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_abi.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_aircraft.cmo : /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+gen_aircraft.cmx : /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+gen_airframe.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmi
+gen_airframe.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/compat.cmx
+gen_autopilot.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_autopilot.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_flight_plan.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/srtm.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/geometry_2d.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/fp_proc.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/expr_syntax.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/egm96.cmi
+gen_flight_plan.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/srtm.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/latlong.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/geometry_2d.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/fp_proc.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/expr_syntax.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/egm96.cmx
+gen_modules.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_modules.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_mtk.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi
+gen_mtk.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx
+gen_periodic.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_periodic.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/gen_common.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_radio.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_radio.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_settings.cmo : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_settings.cmx : /home/bart/paparazzi/sw/lib/ocaml/xml2h.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_srtm.cmo : /home/bart/paparazzi/sw/lib/ocaml/srtm.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/http.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+gen_srtm.cmx : /home/bart/paparazzi/sw/lib/ocaml/srtm.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/http.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx
+gen_ubx.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi
+gen_ubx.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx
+gen_xsens.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi
+gen_xsens.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx
