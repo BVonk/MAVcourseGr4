@@ -1,0 +1,20 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="green_keeper">
+  <doc>
+    <description>
+	Avoid all objects that are not green!
+	This module shows how you can use the camera stream and colorfilter to detect green objects.
+    </description>
+  </doc>
+  <depends>cv_colorfilter.xml</depends>
+  <header>
+    <file name="green_keeper.h"/>
+  </header>
+  <init fun="green_keeper_init()"/>
+  <periodic fun="green_keeper_periodic()" freq="15"/>
+  <makefile target="ap">
+    <file name="green_keeper.c"/>
+  </makefile>
+</module>
+
