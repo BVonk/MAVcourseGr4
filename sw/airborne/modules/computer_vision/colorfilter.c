@@ -31,16 +31,22 @@
 
 struct video_listener *listener = NULL;
 
-// Filter Settings
-uint8_t color_lum_min = 105;
-uint8_t color_lum_max = 205;
-uint8_t color_cb_min  = 52;
-uint8_t color_cb_max  = 140;
-uint8_t color_cr_min  = 180;
-uint8_t color_cr_max  = 255;
+// Filter Settings for GREEN, same as in green_keeper.c
+uint8_t color_lum_min = 105; // was 105
+uint8_t color_lum_max = 205; // was 205
+uint8_t color_cb_min  = 0; // 52
+uint8_t color_cb_max  = 120; // 140
+uint8_t color_cr_min  = 0; // 180
+uint8_t color_cr_max  = 120; // 255
 
 // Result
 int color_count = 0;
+uint32_t col_count[3] = {0,0,0};
+/*struct col_count{
+int left;
+int mid;
+int right;
+} */
 
 // Function
 struct image_t *colorfilter_func(struct image_t *img);
@@ -52,6 +58,11 @@ struct image_t *colorfilter_func(struct image_t *img)
                                        color_cb_min, color_cb_max,
                                        color_cr_min, color_cr_max
                                       );
+ColCount(img, img,
+                                       color_lum_min, color_lum_max,
+                                       color_cb_min, color_cb_max,
+                                       color_cr_min, color_cr_max,
+                                       &col_count);
 
   return img; // Colorfilter did not make a new image
 }

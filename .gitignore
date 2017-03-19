@@ -2,8 +2,6 @@
 /doc/generated
 /doc/manual/generated
 
-*.deb
-
 *.so
 *.[oa]
 *.out

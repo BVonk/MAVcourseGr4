@@ -19,6 +19,10 @@
 #include "generated/flight_plan.h"
 #include "modules/computer_vision/colorfilter.h"
 #include "modules/orange_avoider/orange_avoider.h"
+//#include "opencv_example.h"
+
+
+
 
 #define ORANGE_AVOIDER_VERBOSE TRUE
 
@@ -32,7 +36,7 @@
 uint8_t safeToGoForwards        = false;
 int tresholdColorCount          = 0.05 * 124800; // 520 x 240 = 124.800 total pixels
 float incrementForAvoidance;
-uint16_t trajectoryConfidence   = 1;
+extern uint16_t trajectoryConfidence   = 1;
 float maxDistance               = 2.25;
 
 /*
@@ -62,6 +66,7 @@ void orange_avoider_periodic()
   safeToGoForwards = color_count < tresholdColorCount;
   VERBOSE_PRINT("Color_count: %d  threshold: %d safe: %d \n", color_count, tresholdColorCount, safeToGoForwards);
   float moveDistance = fmin(maxDistance, 0.05 * trajectoryConfidence);
+  //safeToGoForwards = rand() % 2;
   if(safeToGoForwards){
       moveWaypointForward(WP_GOAL, moveDistance);
       moveWaypointForward(WP_TRAJECTORY, 1.25 * moveDistance);

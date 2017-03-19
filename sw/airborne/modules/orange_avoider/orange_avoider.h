@@ -15,6 +15,7 @@
 #include <inttypes.h>
 #include "state.h"
 
+//extern int opencv_example(char *img, int width, int height)
 extern uint8_t safeToGoForwards;
 extern float incrementForAvoidance;
 extern uint16_t trajectoryConfidence;

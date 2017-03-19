@@ -42,6 +42,7 @@ extern uint8_t color_cr_min;
 extern uint8_t color_cr_max;
 
 extern int color_count;
+extern uint32_t col_count[];
 
 extern struct video_listener *listener;
 
