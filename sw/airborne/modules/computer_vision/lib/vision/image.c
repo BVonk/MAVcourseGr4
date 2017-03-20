@@ -206,8 +206,8 @@ void ColCount(struct image_t *input, struct image_t *output, uint8_t y_m, uint8_
   output->ts = input->ts;
 
   // Go trough all the pixels
-for (uint16_t x = 0; x < output->w; x += 2){ // turned around, first all y then next x
-	for (uint16_t y = 0; y < output->h; y++) {
+for (uint16_t x = 0; x < output->w; x++){ // turned around, first all y then next x
+	for (uint16_t y = 0; y < output->h; y+=2) {
       // Check if the color is inside the specified values
       if (
         (dest[1] >= y_m)
@@ -241,16 +241,18 @@ for (uint16_t x = 0; x < output->w; x += 2){ // turned around, first all y then 
       source += 4;
     }
 // check how much green pixels per column and add them to the array
-if (x == (uint32_t)(output->w)/3){
-col[1] = cnt;
-}
-if (x == (uint32_t)(2*(output->w)/3)){
-col[2] = cnt - col[1];
-}
-if (x == (uint32_t)((output->w))){
-col[3] = cnt - col[1] - col[2];
-}
+if (x == (uint32_t)((output->w)/3)){
+	col[0] = cnt;
+	}
+else if (x == (uint32_t)(2*(output->w)/3)){
+	col[1] = cnt - col[0];
+	}
+//removed last if statement, didn work. Instead it will now fill col3 once the entire filter has ran.
+else if (x == ((output->w)) -1 ){
+	col[2] = cnt - col[0] - col[1];
+	}
   }
+  
   //return col[];
 }
 

@@ -53,17 +53,21 @@ struct image_t *colorfilter_func(struct image_t *img);
 struct image_t *colorfilter_func(struct image_t *img)
 {
   // Filter
+/* Use only one filter at a time
   color_count = image_yuv422_colorfilt(img, img,
                                        color_lum_min, color_lum_max,
                                        color_cb_min, color_cb_max,
                                        color_cr_min, color_cr_max
                                       );
-ColCount(img, img,
+*/
+
+  ColCount(img, img,
                                        color_lum_min, color_lum_max,
                                        color_cb_min, color_cb_max,
                                        color_cr_min, color_cr_max,
-                                       &col_count);
-
+                                       col_count);
+  fprintf("colourcount = %d \n", color_count);
+  fprintf("col1=%d \t col2=%d \t col3=%d \n", col_count[0], col_count[1], col_count[2]);
   return img; // Colorfilter did not make a new image
 }
 

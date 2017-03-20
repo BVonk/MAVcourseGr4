@@ -74,8 +74,8 @@ void green_keeper_periodic()
   // Check the amount of green. If this is below a threshold
   // you want to turn a certain amount of degrees
   safeToGoForwards = color_count > tresholdColorCount;
-  //VERBOSE_PRINT("Color_count: %d  threshold: %d safe: %d \n", color_count, tresholdColorCount, safeToGoForwards);
-  printf("cnt1= %d   cnt2 = %d   cnt3 = %d \n", col_count[0], col_count[1], col_count[2]);
+  VERBOSE_PRINT("Color_count: %d  threshold: %d safe: %d \n", color_count, tresholdColorCount, safeToGoForwards);
+  VERBOSE_PRINT("cnt1= %d   cnt2 = %d   cnt3 = %d \n", col_count[0], col_count[1], col_count[2]);
   float moveDistance = fmin(maxDistance, 0.05 * trajectoryConfidence);
   if(safeToGoForwards){
       moveWaypointForward(WP_GOAL, moveDistance);

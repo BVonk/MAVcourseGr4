@@ -1,5 +1,5 @@
 /* This file has been generated from /home/bart/paparazzi/conf/airframes/TUDELFT/tudelft_course2017_bebop1_avoider.xml */
-/* Version v5.11_devel-none-gbfcf671 */
+/* Version v5.11_devel-none-g45f69ae-dirty */
 /* Please DO NOT EDIT */
 
 #ifndef AIRFRAME_H
