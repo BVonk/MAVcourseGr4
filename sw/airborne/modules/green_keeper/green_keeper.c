@@ -54,12 +54,14 @@ float maxDistance               = 2.25;
 void green_keeper_init()
 {
   // Initialise the variables of the colorfilter to accept GREEN, http://www.niwa.nu/2013/05/understanding-yuv-values/ is used to determine values for cb and cr for green (test these values!), while luminance is not changed with respect to initial values for orange.
-  color_lum_min = 20;
-  color_lum_max = 255;
-  color_cb_min  = 0;
-  color_cb_max  = 120;
-  color_cr_min  = 0;
-  color_cr_max  = 120;
+  
+uint8_t color_lum_min = 5; // was 105
+uint8_t color_lum_max = 101; // was 205
+uint8_t color_cb_min  = 8; // 52
+uint8_t color_cb_max  = 105; // 140
+uint8_t color_cr_min  = 136; // 180
+uint8_t color_cr_max  = 152; // 255
+ 
 
   // Initialise random values
   srand(time(NULL));

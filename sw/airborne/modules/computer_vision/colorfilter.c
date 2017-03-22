@@ -32,12 +32,12 @@
 struct video_listener *listener = NULL;
 
 // Filter Settings for GREEN, same as in green_keeper.c
-uint8_t color_lum_min = 105; // was 105
-uint8_t color_lum_max = 205; // was 205
-uint8_t color_cb_min  = 0; // 52
-uint8_t color_cb_max  = 120; // 140
-uint8_t color_cr_min  = 0; // 180
-uint8_t color_cr_max  = 120; // 255
+uint8_t color_lum_min = 5; // was 105
+uint8_t color_lum_max = 101; // was 205
+uint8_t color_cb_min  = 8; // 52
+uint8_t color_cb_max  = 105; // 140
+uint8_t color_cr_min  = 136; // 180
+uint8_t color_cr_max  = 152; // 255
 
 // Result
 int color_count = 0;
