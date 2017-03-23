@@ -1,0 +1,145 @@
+
+PWD	= $(shell pwd)
+
+
+all:
+	git submodule init
+	git submodule update
+	cd opencv && git am --signoff < ../fix_compiler_crash.patch && cd ..
+	make cc
+	make build
+	./link.py > install/opencv.xml
+	git submodule update
+
+build:
+	make -C ./build
+	make -C ./build install
+
+
+
+cc:
+	mkdir build -p;
+	cmake -H./opencv -B./build -DCMAKE_TOOLCHAIN_FILE=$(PWD)/bebop.toolchain.cmake \
+		 -DCMAKE_INSTALL_PREFIX=$(PWD)/install \
+		 -DBUILD_CUDA_STUBS=FALSE \
+		 -DBUILD_DOCS=FALSE  \
+		 -DBUILD_EXAMPLES=FALSE \
+		 -DBUILD_FAT_JAVA_LIB=TRUE \
+		 -DBUILD_JASPER=FALSE \
+		 -DBUILD_JPEG=FALSE \
+		 -DBUILD_OPENEXR=FALSE \
+		 -DBUILD_PACKAGE=FALSE \
+		 -DBUILD_PERF_TESTS=FALSE \
+		 -DBUILD_PNG=FALSE \
+		 -DBUILD_SHARED_LIBS=FALSE \
+		 -DBUILD_TBB=FALSE \
+		 -DBUILD_TESTS=FALSE \
+		 -DBUILD_TIFF=FALSE \
+		 -DBUILD_WITH_DEBUG_INFO=FALSE \
+		 -DBUILD_WITH_DYNAMIC_IPP=FALSE \
+		 -DBUILD_ZLIB=FALSE \
+		 -DBUILD_opencv_apps=FALSE \
+		 -DBUILD_opencv_calib3d=FALSE \
+		 -DBUILD_opencv_core=TRUE \
+		 -DBUILD_opencv_features2d=FALSE \
+		 -DBUILD_opencv_flann=FALSE \
+		 -DBUILD_opencv_highgui=FALSE \
+		 -DBUILD_opencv_imgcodecs=TRUE \
+		 -DBUiLD_opencv_imgproc=TRUE \
+		 -DBUILD_opencv_java=FALSE \
+		 -DBUILD_opencv_ml=FALSE \
+		 -DBUILD_opencv_objdetect=FALSE \
+		 -DBUILD_opencv_photo=FALSE \
+		 -DBUILD_opencv_shape=FALSE \
+		 -DBUILD_opencv_stitching=FALSE \
+		 -DBUILD_opencv_superres=FALSE \
+		 -DBUILD_opencv_ts=FALSE \
+		 -DBUILD_opencv_video=FALSE \
+		 -DBUILD_opencv_videoio=FALSE \
+		 -DBUILD_opencv_videostab=FALSE \
+		 -DBUILD_opencv_world=FALSE \
+		 -DCUDA_BUILD_CUBIN=FALSE \
+		 -DCUDA_BUILD_EMULATION=FALSE \
+		 -DCUDA_SEPARABLE_COMPILATION=FALSE \
+		 -DCUDA_VERBOSE_BUILD=FALSE \
+		 -DDOWNLOAD_EXTERNAL_TEST_DATA=FALSE \
+		 -DENABLE_AVX=FALSE \
+		 -DENABLE_AVX2=FALSE \
+		 -DENABLE_COVERAGE=FALSE \
+		 -DENABLE_FAST_MATH=FALSE \
+		 -DENABLE_FMA3=FALSE \
+		 -DENABLE_IMPL_COLLECTION=FALSE \
+		 -DENABLE_NOISY_WARNINGS=FALSE \
+		 -DENABLE_OMIT_FRAME_POINTER=FALSE \
+		 -DENABLE_POPCNT=FALSE \
+		 -DENABLE_PRECOMPILED_HEADERS=FALSE \
+		 -DENABLE_PROFILING=FALSE \
+		 -DENABLE_SOLUTION_FOLDERS=FALSE \
+		 -DENABLE_SSE=FALSE \
+		 -DENABLE_SSE2=FALSE \
+		 -DENABLE_SSE3=FALSE \
+		 -DENABLE_SSE41=FALSE \
+		 -DENABLE_SSE42=FALSE \
+		 -DENABLE_SSSE3=FALSE \
+		 -DINSTALL_CREATE_DISTRIB=FALSE \
+		 -DINSTALL_C_EXAMPLES=FALSE \
+		 -DINSTALL_PYTHON_EXAMPLES=FALSE \
+		 -DINSTALL_TESTS=FALSE \
+		 -DOPENCV_WARNINGS_ARE_ERRORS=FALSE \
+		 -DWITH_1394=FALSE \
+		 -DWITH_CLP=FALSE \
+		 -DWITH_CUBLAS=FALSE \
+		 -DWITH_CUDA=FALSE \
+		 -DWITH_CUFFT=FALSE \
+		 -DWITH_EIGEN=FALSE \
+		 -DWITH_FFMPEG=FALSE \
+		 -DWITH_GDAL=FALSE \
+		 -DWITH_GIGEAPI=FALSE \
+		 -DWITH_GPHOTO2=FALSE \
+		 -DWITH_GSTREAMER=FALSE \
+		 -DWITH_GSTREAMER_0_10=FALSE \
+		 -DWITH_GTK=FALSE \
+		 -DWITH_GTK_2_X=FALSE \
+		 -DWITH_IPP=FALSE \
+		 -DWITH_IPP_A=FALSE \
+		 -DWITH_JASPER=FALSE \
+		 -DWITH_JPEG=FALSE \
+		 -DWITH_LIBV4L=FALSE \
+		 -DWITH_MATLAB=FALSE \
+		 -DWITH_NVCUVID=FALSE \
+		 -DWITH_OPENCL=FALSE \
+		 -DWITH_OPENCLAMDBLAS=FALSE \
+		 -DWITH_OPENCLAMDFFT=FALSE \
+		 -DWITH_OPENCL_SVM=FALSE \
+		 -DWITH_OPENEXR=FALSE \
+		 -DWITH_OPENGL=FALSE \
+		 -DWITH_OPENMP=FALSE \
+		 -DWITH_OPENNI=FALSE \
+		 -DWITH_OPENNI2=FALSE \
+		 -DWITH_PNG=TRUE \
+		 -DWITH_PTHREADS_PF=FALSE \
+		 -DWITH_PVAPI=FALSE \
+		 -DWITH_QT=FALSE \
+		 -DWITH_TBB=FALSE \
+		 -DWITH_TIFF=FALSE \
+		 -DWITH_UNICAP=FALSE \
+		 -DWITH_V4L=TRUE \
+		 -DWITH_VA=FALSE \
+		 -DWITH_VA_INTEL=FALSE \
+		 -DWITH_VTK=FALSE \
+		 -DWITH_WEBP=FALSE \
+		 -DWITH_XIMEA=FALSE \
+		 -DWITH_XINE=FALSE
+
+
+
+patch:
+	cd opencv
+	git format-patch 3.1.0 --stdout > ../fix_compiler_crash.patch
+
+
+clean:
+	rm -rf ./build
+	rm -rf *~
+
+.PHONY: build cc clean

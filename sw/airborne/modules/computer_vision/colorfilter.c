@@ -41,7 +41,7 @@ uint8_t color_cr_max  = 152; // 255
 
 // Result
 int color_count = 0;
-uint32_t col_count[3] = {0,0,0};
+uint32_t col_count[7] = {0,0,0,0,0,0,0};
 /*struct col_count{
 int left;
 int mid;
@@ -66,8 +66,8 @@ struct image_t *colorfilter_func(struct image_t *img)
                                        color_cb_min, color_cb_max,
                                        color_cr_min, color_cr_max,
                                        col_count);
-  fprintf("colourcount = %d \n", color_count);
-  fprintf("col1=%d \t col2=%d \t col3=%d \n", col_count[0], col_count[1], col_count[2]);
+ // fprintf("colourcount = %d \n", color_count);
+ // fprintf("col1=%d \t col2=%d \t col3=%d \n", col_count[0], col_count[1], col_count[2]);
   return img; // Colorfilter did not make a new image
 }
 

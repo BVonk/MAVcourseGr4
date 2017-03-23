@@ -1,0 +1,4 @@
+find_free_msg_id.cmo : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmi \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmi
+find_free_msg_id.cmx : /home/bart/paparazzi/sw/lib/ocaml/extXml.cmx \
+    /home/bart/paparazzi/sw/lib/ocaml/env.cmx

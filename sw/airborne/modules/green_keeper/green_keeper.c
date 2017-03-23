@@ -43,10 +43,10 @@
 #endif
 
 uint8_t safeToGoForwards        = FALSE;
-int tresholdColorCount          = 0.5 * 0.80 * 124800; // 520 x 240 = 124.800 total pixels
+int tresholdColorCount          = 4000; // 520 x 240 = 124.800 total pixels
 float incrementForAvoidance;
 uint16_t trajectoryConfidence   = 1;
-float maxDistance               = 2.25;
+float maxDistance               = 1.00; // was 2.25
 
 /*
  * Initialisation function, setting the colour filter, random seed and incrementForAvoidance
@@ -65,7 +65,7 @@ uint8_t color_cr_max  = 152; // 255
 
   // Initialise random values
   srand(time(NULL));
-  chooseRandomIncrementAvoidance();
+  chooseRandomIncrementAvoidance(col_count, tresholdColorCount);
 }
 
 /*
@@ -75,15 +75,17 @@ void green_keeper_periodic()
 {
   // Check the amount of green. If this is below a threshold
   // you want to turn a certain amount of degrees
-  safeToGoForwards = color_count > tresholdColorCount;
+  safeToGoForwards = col_count[3] > tresholdColorCount && col_count[4] > tresholdColorCount;
+
   VERBOSE_PRINT("Color_count: %d  threshold: %d safe: %d \n", color_count, tresholdColorCount, safeToGoForwards);
-  VERBOSE_PRINT("cnt1= %d   cnt2 = %d   cnt3 = %d \n", col_count[0], col_count[1], col_count[2]);
+  VERBOSE_PRINT("cnt4 = %d cnt5 = %d cnt6 = %d cnt7 = %d \n", col_count[3], col_count[4], col_count[5], col_count[6]);
+   
   float moveDistance = fmin(maxDistance, 0.05 * trajectoryConfidence);
   if(safeToGoForwards){
       moveWaypointForward(WP_GOAL, moveDistance);
       moveWaypointForward(WP_TRAJECTORY, 1.25 * moveDistance);
       nav_set_heading_towards_waypoint(WP_GOAL);
-      chooseRandomIncrementAvoidance();
+      chooseRandomIncrementAvoidance(col_count, tresholdColorCount);
       trajectoryConfidence += 1;
   }
   else{
@@ -155,15 +157,22 @@ uint8_t moveWaypointForward(uint8_t waypoint, float distanceMeters)
 /*
  * Sets the variable 'incrementForAvoidance' randomly positive/negative
  */
-uint8_t chooseRandomIncrementAvoidance()
-{
-  // Choose CW or CCW avoiding direction depending on amount of green pixels in each column of col
-  if (col_count[2] > col_count[1]) { // if more green pixels are in the right column, yaw clockwise
-    incrementForAvoidance = 20.0;
-    VERBOSE_PRINT("Set avoidance increment to: %f\n", incrementForAvoidance);
-  } else if(col_count[0] < col_count[1]){ // if more green pixels are in the left column, yaw counter clockwise
-    incrementForAvoidance = -20.0;
+
+uint8_t chooseRandomIncrementAvoidance(uint32_t* arr, int* threshold){  
+  if (arr[2] < arr[4]){
+    incrementForAvoidance = 30;
     VERBOSE_PRINT("Set avoidance increment to: %f\n", incrementForAvoidance);
   }
-  return FALSE;
+  else if(arr[2] > arr[4]){
+    incrementForAvoidance = -30;
+    VERBOSE_PRINT("Set avoidance increment to: %f\n", incrementForAvoidance);
+  }
+
+
+  if (arr[1] < threshold && arr[5] < threshold){
+    incrementForAvoidance = 150;
+    VERBOSE_PRINT("Set avoidance increment to: %f\n", incrementForAvoidance);
+  }
+  printf("Increment: %d\n",incrementForAvoidance);
+  return false;
 }
