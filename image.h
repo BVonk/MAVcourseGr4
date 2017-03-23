@@ -81,6 +81,7 @@ struct crop_t {
 };
 
 /* Usefull image functions */
+void ColCount(struct image_t *input, struct image_t *output, uint8_t y_m, uint8_t y_M, uint8_t u_m, uint8_t u_M, uint8_t v_m, uint8_t v_M, uint32_t *colnr);
 void image_add_border(struct image_t *input, struct image_t *output, uint8_t border_size);
 void image_create(struct image_t *img, uint16_t width, uint16_t height, enum image_type type);
 void image_free(struct image_t *img);

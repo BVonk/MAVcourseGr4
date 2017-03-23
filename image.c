@@ -134,6 +134,7 @@ void image_to_grayscale(struct image_t *input, struct image_t *output)
   }
 }
 
+
 uint16_t image_yuv422_colorfilt(struct image_t *input, struct image_t *output, uint8_t y_m, uint8_t y_M, uint8_t u_m,
                                 uint8_t u_M, uint8_t v_m, uint8_t v_M)
 {
@@ -195,18 +196,18 @@ uint16_t image_yuv422_colorfilt(struct image_t *input, struct image_t *output, u
  * @return The amount of filtered pixels
  */
 void ColCount(struct image_t *input, struct image_t *output, uint8_t y_m, uint8_t y_M, uint8_t u_m,
-                                uint8_t u_M, uint8_t v_m, uint8_t v_M, uint32_t *col)
+                                uint8_t u_M, uint8_t v_m, uint8_t v_M, uint32_t *colnr)
 {
   uint32_t cnt = 0;
   uint8_t *source = input->buf;
   uint8_t *dest = output->buf;
-  //uint32_t col[] = {0,0,0} ; // dividing in columns
+ // uint32_t colnr[] = {0,0,0,0,0,0,0} ; // dividing in columns
 
   // Copy the creation timestamp (stays the same)
   output->ts = input->ts;
 
   // Go trough all the pixels
-for (uint16_t x = 0; x < output->w; x += 2){ // turned around, first all y then next x
+for (uint32_t x = 0; x < output->w; x += 2){ // turned around, first all y then next x
 	for (uint16_t y = 0; y < output->h; y++) {
       // Check if the color is inside the specified values
       if (
@@ -241,17 +242,34 @@ for (uint16_t x = 0; x < output->w; x += 2){ // turned around, first all y then 
       source += 4;
     }
 // check how much green pixels per column and add them to the array
-if (x == (uint32_t)(output->w)/3){
-col[1] = cnt;
+if (x == (uint32_t)(output->w)/8){
+colnr[0] = cnt;
 }
-if (x == (uint32_t)(2*(output->w)/3)){
-col[2] = cnt - col[1];
+if (x == (uint32_t)(2*(output->w)/8)){
+colnr[1] = cnt - colnr[0];
+}
+if (x == (uint32_t)(3*(output->w)/8)){
+colnr[2] = cnt - colnr[0] - colnr[1];
+}
+if (x == (uint32_t)(4*(output->w)/8)){
+colnr[3] = cnt - colnr[0] - colnr[1] - colnr[2];
+}
+if (x == (uint32_t)(5*(output->w)/8)){
+colnr[4] = cnt - colnr[0] - colnr[1] - colnr[2] - colnr[3];
+}
+if (x == (uint32_t)(6*(output->w)/8)){
+colnr[5] = cnt - colnr[0] - colnr[1] - colnr[2] - colnr[3] - colnr[4];
+}
+if (x == (uint32_t)(7*(output->w)/8)){
+colnr[6] = cnt - colnr[0] - colnr[1] - colnr[2] - colnr[3] - colnr[4] - colnr[5];
 }
 if (x == (uint32_t)((output->w))){
-col[3] = cnt - col[1] - col[2];
+colnr[7] = cnt - colnr[0] - colnr[1] - colnr[2] - colnr[3] - colnr[4] - colnr[5] - colnr[6];
 }
+
   }
-  //return col[];
+
+  // return colnr[];
 }
 
 /**

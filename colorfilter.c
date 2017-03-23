@@ -31,8 +31,8 @@
 
 struct video_listener *listener = NULL;
 
-// Filter Settings for GREEN, same as in green_keeper.c (prima setting is 20, 160, 80, 110, 95, 140)
-uint8_t color_lum_min = 5; // was 105 
+// Filter Settings for GREEN, same as in green_keeper.c
+uint8_t color_lum_min = 5; // was 105
 uint8_t color_lum_max = 101; // was 205
 uint8_t color_cb_min  = 8; // 52
 uint8_t color_cb_max  = 105; // 140
@@ -41,7 +41,7 @@ uint8_t color_cr_max  = 152; // 255
 
 // Result
 int color_count = 0;
-uint32_t col_count[3] = {0,0,0};
+uint32_t col_count[7] = {0,0,0,0,0,0,0};
 /*struct col_count{
 int left;
 int mid;
@@ -54,7 +54,7 @@ struct image_t *colorfilter_func(struct image_t *img)
 {
   // Filter
 /* Use only one filter at a time
-  color_count = image_yuv422_colorfilt(img, img,https://github.com/BVonk/MAVcourseGr4https://github.com/BVonk/MAVcourseGr4.git.git
+  color_count = image_yuv422_colorfilt(img, img,
                                        color_lum_min, color_lum_max,
                                        color_cb_min, color_cb_max,
                                        color_cr_min, color_cr_max
@@ -66,8 +66,8 @@ struct image_t *colorfilter_func(struct image_t *img)
                                        color_cb_min, color_cb_max,
                                        color_cr_min, color_cr_max,
                                        col_count);
-  fprintf("colourcount = %d \n", color_count);
-  fprintf("col1=%d \t col2=%d \t col3=%d \n", col_count[0], col_count[1], col_count[2]);
+ // fprintf("colourcount = %d \n", color_count);
+ // fprintf("col1=%d \t col2=%d \t col3=%d \n", col_count[0], col_count[1], col_count[2]);
   return img; // Colorfilter did not make a new image
 }
 
